@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Student;
+use Carbon\Carbon;
 
 class StudentSeeder extends Seeder
 {
@@ -35,7 +36,7 @@ class StudentSeeder extends Seeder
 
             $newStudent->nome = $student['nome'];
             $newStudent->citta = $student['citta'];
-            $newStudent->data_nascita = $student['data_nascita'];
+            $newStudent->data_nascita = Carbon::createFromFormat('d/m/Y', $student['data_nascita']);
 
             $newStudent->save();
         }
