@@ -29,5 +29,15 @@ class StudentSeeder extends Seeder
                 'data_nascita' => '27/11/95'
             ]
         ];
+
+        foreach($students as $student){
+            $newStudent = new Student();
+
+            $newStudent->nome = $student['nome'];
+            $newStudent->citta = $student['citta'];
+            $newStudent->data_nascita = $student['data_nascita'];
+
+            $newStudent->save();
+        }
     }
 }
